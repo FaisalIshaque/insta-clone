@@ -1,0 +1,16 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: instaclone-dev
+  host: localhost
+  pool: 5
+  username:  root
+  password: redemption1
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: instaclone-dev-test
+  host: localhost
+  pool: 5
+  username:  root
+  password: redemption1

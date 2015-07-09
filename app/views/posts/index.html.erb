@@ -1,0 +1,35 @@
+	<p class="navbar-text pull-right">
+		<% if user_signed_in? %>
+
+
+		<% if @posts.any? %>
+			<%= link_to 'New', new_post_path(@post) %> <br><br>
+			<% @posts.each do |post| %>
+				<%= link_to (image_tag post.image.url(:medium), class: "display"), post_path(post)%> 
+				<%= link_to 'Delete', post_path(post), method: :delete, data: {confirm: 'Are You Sure'} %><br>
+			<% end %>
+		<% else %>
+			<p> No posts </p>
+			<%= link_to 'New', new_post_path(@post) %> 
+		<% end %>
+
+
+
+		<% else %>
+			<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+			<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+			<% if @posts.any? %><br><br>
+				<% @posts.each do |post| %>
+				<%= image_tag post.image.url(:medium), class: "display"%><br>
+				<% end %>
+			<% else %>
+				<p> No posts </p>
+			<% end %>
+		<% end %><br><br>
+
+		
+
+<!-- <%#= post.image %> -->
+<!--	<%#= link_to 'Edit', edit_post_path(post) %> -->
+<!-- <%# link_to 'Edit', edit_post_path(post) %>  -->
+<%#= link_to 'New', new_post_path(@post) %>
